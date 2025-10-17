@@ -1,4 +1,3 @@
-// src/UndurDiri.js
 
 class UndurDiri {
     /**
@@ -7,7 +6,7 @@ class UndurDiri {
      * @returns {Object} Hasil validasi (status dan pesan).
      */
     validateAjuan(data) {
-        // Logika diambil dari Screenshot 2025-10-17 104350.jpg
+        
         const requiredDocs = ['Surat Pernyataan', 'Kuitansi Pembayaran', 'Transkrip nilai', 'Surat Keterangan Bebas Pinjaman buku', 'Surat Keterangan Bebas KOPMA UNS', 'Surat Keterangan Bebas Laboratorium'];
         
         if (!data.filePDF) {

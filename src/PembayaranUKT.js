@@ -1,4 +1,3 @@
-// src/PembayaranUKT.js
 
 class PembayaranUKT {
     /**
@@ -9,7 +8,7 @@ class PembayaranUKT {
      */
     validateAjuan(data, today = new Date('2025-10-17')) { // Default untuk simulasi
         
-        // Logika diambil dari Screenshot 2025-10-17 104438.jpg dan 104456.jpg
+       
         if (!data.alasan || data.alasan.trim() === '') {
             return { status: 'Gagal', message: 'Alasan wajib diisi.' }; // Meniru "Alasan wajib! (and 1 more error)"
         }

@@ -1,4 +1,3 @@
-// src/KeringananUKT.js
 
 class KeringananUKT {
     /**
