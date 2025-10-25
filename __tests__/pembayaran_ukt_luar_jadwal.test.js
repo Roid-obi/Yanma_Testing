@@ -7,8 +7,8 @@ const TODAY = new Date('2025-10-17');
 
 describe('Unit Test: Pembayaran UKT di Luar Jadwal (LA-JDL)', () => {
 
-    // TC: LA-JDL-005 (Kasus Positif)
-    test('LA-JDL-005a: Pengajuan harus sukses dengan alasan dan tanggal valid', () => {
+    // TC: Menguji TC-RR-04 (Kasus Positif)
+    test('TC-RR-14: Pengajuan harus sukses dengan alasan dan tanggal valid', () => {
         const dataValid = {
             alasan: 'Sedang menunggu kiriman dana dari luar kota.',
             tanggalBayar: '2025-10-25', // Masa depan
@@ -19,8 +19,8 @@ describe('Unit Test: Pembayaran UKT di Luar Jadwal (LA-JDL)', () => {
         expect(result.message).toContain('berhasil diajukan');
     });
 
-    // TC: LA-JDL-006 (Negatif: Alasan Kosong)
-    test('LA-JDL-006: Gagal jika field Alasan kosong', () => {
+    // TC: Menguji TC-RR-06 (Negatif: Alasan Kosong)
+    test('TC-RR-15: Gagal jika field Alasan kosong', () => {
         const dataNoAlasan = {
             alasan: '',
             tanggalBayar: '2025-10-17',
@@ -30,8 +30,8 @@ describe('Unit Test: Pembayaran UKT di Luar Jadwal (LA-JDL)', () => {
         expect(result.message).toBe('Alasan wajib diisi.');
     });
 
-    // TC: LA-JDL-005 (Negatif: Tanggal Lampau)
-    test('LA-JDL-005b: Gagal jika Tanggal Akan Membayar di masa lampau', () => {
+    // TC: Menguji TC-RR-04 (Negatif: Tanggal Lampau)
+    test('TC-RR-16: Gagal jika Tanggal Akan Membayar di masa lampau', () => {
         const dataPastDate = {
             alasan: 'Alasan lengkap',
             tanggalBayar: '2025-10-16', // Satu hari sebelum TODAY
@@ -41,8 +41,8 @@ describe('Unit Test: Pembayaran UKT di Luar Jadwal (LA-JDL)', () => {
         expect(result.message).toBe('Tanggal Akan Membayar tidak boleh di masa lampau.');
     });
 
-    // TC: LA-JDL-005 (Positif: Tanggal Hari Ini)
-    test('LA-JDL-005c: Sukses jika Tanggal Akan Membayar adalah hari ini', () => {
+    // TC: Menguji TC-RR-04 (Positif: Tanggal Hari Ini)
+    test('TC-RR-17: Sukses jika Tanggal Akan Membayar adalah hari ini', () => {
         const dataTodayDate = {
             alasan: 'Alasan lengkap',
             tanggalBayar: '2025-10-17', // Sama dengan TODAY
