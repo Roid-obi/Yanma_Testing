@@ -1,6 +1,8 @@
 # Dokumentasi Unit Testing JavaScript/Node.js dengan Jest
 
-<div style="text-align: center; margin: 10px 0;">   <img height="170" src="https://icon.icepanel.io/Technology/svg/Jest.svg" /> </div>
+<div align="center">
+  <img height="170" src="https://icon.icepanel.io/Technology/svg/Jest.svg" />
+</div>
 
 Dokumen ini memandu **kamu** dalam melakukan Unit Testing untuk kode JavaScript/Node.js dalam proyek ini menggunakan **Jest**, sebuah *framework* pengujian yang menyenangkan.
 
