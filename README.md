@@ -12,8 +12,6 @@ Untuk bekerja secara kolaboratif dalam proyek ini, khususnya saat menambahkan at
 
 ### 1\. **Clone Repositori**
 
-Jika **kamu** belum punya salinan lokal proyek ini, *clone* repositori dari Git (misalnya, GitHub, GitLab, atau Bitbucket):
-
 ```bash
 git clone https://github.com/Roid-obi/Yanma_Testing.git
 cd yanma-testing
