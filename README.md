@@ -15,9 +15,8 @@ Untuk bekerja secara kolaboratif dalam proyek ini, khususnya saat menambahkan at
 Jika **kamu** belum punya salinan lokal proyek ini, *clone* repositori dari Git (misalnya, GitHub, GitLab, atau Bitbucket):
 
 ```bash
-# Ganti <URL-Repositori> dengan URL sebenarnya
-git clone <URL-Repositori> 
-cd <nama-folder-proyek>
+git clone https://github.com/Roid-obi/Yanma_Testing.git
+cd yanma-testing
 ```
 
 ### 2\. **Buat Branch Baru untuk Testing**
