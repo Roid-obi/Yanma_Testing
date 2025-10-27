@@ -1,18 +1,16 @@
 # Dokumentasi Unit Testing JavaScript/Node.js dengan Jest
 
-<div align="center">
-  <img height="200" src="https://icon.icepanel.io/Technology/svg/Jest.svg" />
-</div>
+<div style="text-align: center; margin: 10px 0;">   <img height="170" src="https://icon.icepanel.io/Technology/svg/Jest.svg" /> </div>
 
-Dokumen ini memandu Anda dalam melakukan Unit Testing untuk kode JavaScript/Node.js dalam proyek ini menggunakan **Jest**, sebuah *framework* pengujian yang menyenangkan.
+Dokumen ini memandu **kamu** dalam melakukan Unit Testing untuk kode JavaScript/Node.js dalam proyek ini menggunakan **Jest**, sebuah *framework* pengujian yang menyenangkan.
 
 ## 🤝 Kolaborasi (Collaboration)
 
-Untuk bekerja secara kolaboratif dalam proyek ini, khususnya saat menambahkan atau memodifikasi *unit test*, Anda harus mengikuti alur kerja Git standar.
+Untuk bekerja secara kolaboratif dalam proyek ini, khususnya saat menambahkan atau memodifikasi *unit test*, **kamu** harus mengikuti alur kerja Git standar.
 
 ### 1\. **Clone Repositori**
 
-Jika Anda belum memiliki salinan lokal proyek, *clone* repositori dari Git (misalnya, GitHub, GitLab, atau Bitbucket):
+Jika **kamu** belum punya salinan lokal proyek ini, *clone* repositori dari Git (misalnya, GitHub, GitLab, atau Bitbucket):
 
 ```bash
 # Ganti <URL-Repositori> dengan URL sebenarnya
@@ -22,30 +20,30 @@ cd <nama-folder-proyek>
 
 ### 2\. **Buat Branch Baru untuk Testing**
 
-Sebelum memulai pekerjaan, **selalu** buat *branch* baru. Ini memastikan perubahan Anda terisolasi dan tidak merusak *branch* utama (`main` atau `master`). Untuk *unit testing*, ikuti konvensi penamaan `test/[nama-anda]`.
+Sebelum memulai pekerjaan, **selalu** buat *branch* baru, ya\! Ini penting supaya perubahan **kamu** terisolasi dan nggak merusak *branch* utama (`main` atau `master`). Untuk *unit testing*, ikuti format penamaan `test/[nama-kamu]`.
 
 ```bash
-# Ganti [nama-anda] dengan nama Anda (misalnya, 'test/budi' atau 'test/farah')
-git checkout -b test/[nama-anda] 
+# Ganti [nama-kamu] dengan nama kamu (misalnya, 'test/budi' atau 'test/farah')
+git checkout -b test/[nama-kamu] 
 ```
 
-*Perintah ini secara otomatis akan memindahkan Anda ke branch baru yang telah dibuat.*
+*Perintah ini secara otomatis akan memindahkan **kamu** ke branch baru yang sudah dibuat.*
 
 ### 3\. **Instalasi Dependensi**
 
-Pastikan semua *dependency* (termasuk Jest) terinstal di lingkungan lokal Anda:
+Pastikan semua *dependency* (termasuk Jest) terinstal di lingkungan lokal **kamu**:
 
 ```bash
 npm install
 ```
 
-*Langkah ini harus dilakukan setelah cloning atau jika ada perubahan pada `package.json`.*
+*Langkah ini perlu dilakukan setelah cloning atau kalau ada perubahan pada `package.json`.*
 
 -----
 
 ## 🚀 Quick Setup (Penyiapan Cepat)
 
-Ikuti langkah-langkah di bawah ini di Terminal atau Command Prompt Anda **setelah Anda berada di *branch* baru**:
+Ikuti langkah-langkah di bawah ini di Terminal atau Command Prompt **setelah kamu berada di *branch* baru kamu**:
 
 1.  **Inisialisasi Proyek Node.js:**
 
@@ -75,7 +73,7 @@ Ikuti langkah-langkah di bawah ini di Terminal atau Command Prompt Anda **setela
     ```
 
 4.  **Konfigurasi `package.json`:**
-    Edit *file* `package.json` Anda dan tambahkan *script* `test` di bagian `"scripts"`:
+    Edit *file* `package.json` **kamu** dan tambahkan *script* `test` di bagian `"scripts"`:
 
     ```json
     "scripts": {
@@ -97,7 +95,7 @@ npm run test
 
 ## 📤 Menyelesaikan Pekerjaan dan Mengirim Perubahan
 
-Setelah Anda selesai menulis *unit test* dan memastikan semuanya lulus (`npm run test` berhasil):
+Setelah **kamu** selesai menulis *unit test* dan memastikan semuanya lulus (`npm run test` berhasil):
 
 1.  **Stage (Tambahkan) Perubahan:**
 
@@ -106,7 +104,7 @@ Setelah Anda selesai menulis *unit test* dan memastikan semuanya lulus (`npm run
     ```
 
 2.  **Commit Perubahan:**
-    Tulis pesan *commit* yang deskriptif.
+    Tulis pesan *commit* yang deskriptif ya.
 
     ```bash
     git commit -m "feat(testing): tambahkan unit test untuk [nama-fitur]"
@@ -115,8 +113,8 @@ Setelah Anda selesai menulis *unit test* dan memastikan semuanya lulus (`npm run
 3.  **Push Branch ke Repositori Jarak Jauh (Remote):**
 
     ```bash
-    git push origin test/[nama-anda]
+    git push origin test/[nama-kamu]
     ```
 
 4.  **Buat Pull Request (PR):**
-    Akses platform Git (misalnya, GitHub) dan buat *Pull Request* dari *branch* `test/[nama-anda]` Anda ke *branch* utama (`main`/`master`) agar *unit test* Anda dapat ditinjau dan digabungkan.
+    Akses platform Git (misalnya, GitHub) dan buat *Pull Request* dari *branch* `test/[nama-kamu]` **kamu** ke *branch* utama (`main`/`master`) supaya *unit test* **kamu** bisa ditinjau dan digabungkan.
