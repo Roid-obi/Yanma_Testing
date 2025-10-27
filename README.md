@@ -118,4 +118,4 @@ Setelah **kamu** selesai menulis *unit test* dan memastikan semuanya lulus (`npm
     ```
 
 4.  **Buat Pull Request (PR):**
-    Akses platform Git (misalnya, GitHub) dan buat *Pull Request* dari *branch* `test/[nama-kamu]` **kamu** ke *branch* utama (`main`/`master`) supaya *unit test* **kamu** bisa ditinjau dan digabungkan.
+    Akses platform Git (misalnya, GitHub) dan buat *Pull Request* dari *branch* `test/[nama-kamu]` **kamu** ke *branch* utama (`main`) supaya *unit test* **kamu** bisa ditinjau dan digabungkan.
