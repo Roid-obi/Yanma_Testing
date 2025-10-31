@@ -6,7 +6,7 @@ class KeringananUKT {
      * @returns {boolean} Status apakah pengajuan sudah dibuka.
      */
     isJadwalOpen(dateString) {
-        // Karena jadwal di screenshot kosong, kita set asumsi jadwal buka/tutup
+        // Karena jadwal di halaman keringanan UKT kosong, kita set asumsi jadwal buka/tutup
         const start = new Date('2025-11-01');
         const end = new Date('2025-11-30');
         const today = new Date(dateString);
