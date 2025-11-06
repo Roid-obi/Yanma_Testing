@@ -1,4 +1,4 @@
-const authModel = require('./authModel')
+const authModel = require('./AuthModel')
 const dataDummy = require('./DataDummy');
 
 class SuratKeteranganMasihKuliah {
