@@ -1,52 +1,26 @@
-const SuratIzinKegiatan = require("../src/SuratIzinKegiatan");
+const SuratIzinKegiatan = require("../src/suratizinkegiatan");
+const sik = new SuratIzinKegiatan();
 
-describe("Surat Izin Kegiatan", () => {
-  let izin;
-
-  beforeEach(() => {
-    izin = new SuratIzinKegiatan();
+describe("Unit Test: Surat Izin Kegiatan", () => {
+  test("Form kosong", () => {
+    const result = sik.validateForm({});
+    expect(result.status).toBe("Gagal");
   });
 
-  test("menolak ajuan dengan data tidak lengkap", () => {
-    expect(() => izin.ajukanIzin({
-      namaKegiatan: "",
-      tanggalMulai: "2025-11-10",
-      tanggalSelesai: "2025-11-12",
-      penanggungJawab: "Riza",
-      suratPengantar: "izin.pdf"
-    })).toThrow("Data ajuan tidak lengkap");
-  });
-
-  test("menolak file non-PDF", () => {
-    expect(() => izin.ajukanIzin({
-      namaKegiatan: "Workshop AI",
-      tanggalMulai: "2025-11-10",
-      tanggalSelesai: "2025-11-12",
-      penanggungJawab: "Riza",
-      suratPengantar: "izin.docx"
-    })).toThrow("File surat pengantar harus dalam format PDF");
-  });
-
-  test("menerima ajuan valid", () => {
-    const result = izin.ajukanIzin({
-      namaKegiatan: "Workshop AI",
-      tanggalMulai: "2025-11-10",
-      tanggalSelesai: "2025-11-12",
-      penanggungJawab: "Riza",
-      suratPengantar: "izin.pdf"
+  test("File belum diunggah", () => {
+    const result = sik.validateForm({
+      namaKegiatan: "Workshop",
+      tanggalKegiatan: "2025-12-01",
     });
-    expect(result.status).toBe("Menunggu");
+    expect(result.status).toBe("Gagal");
   });
 
-  test("mengubah status ajuan menjadi Disetujui", () => {
-    const ajuan = izin.ajukanIzin({
-      namaKegiatan: "Workshop AI",
-      tanggalMulai: "2025-11-10",
-      tanggalSelesai: "2025-11-12",
-      penanggungJawab: "Riza",
-      suratPengantar: "izin.pdf"
+  test("Form valid", () => {
+    const result = sik.validateForm({
+      namaKegiatan: "Workshop",
+      tanggalKegiatan: "2025-12-01",
+      fileSurat: { size: 1024 },
     });
-    const updated = izin.ubahStatus(ajuan.id, "Disetujui");
-    expect(updated.status).toBe("Disetujui");
+    expect(result.status).toBe("Sukses");
   });
 });

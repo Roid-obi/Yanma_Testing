@@ -1,57 +1,25 @@
-const Legalisir = require("../src/Legalisir");
+const Legalisir = require("../src/legalisir");
+const lg = new Legalisir();
 
-describe("Legalisir Dokumen Akademik", () => {
-  let legalisir;
-
-  beforeEach(() => {
-    legalisir = new Legalisir();
+describe("Unit Test: Legalisir", () => {
+  test("TC-AL-19: Nomor antrian muncul otomatis", () => {
+    const result = lg.buatAntrian({ nama: "Aldifa", nim: "V3423001" });
+    expect(result.status).toBe("Sukses");
+    expect(result.nomorAntrian).toBeDefined();
   });
 
-  test("menolak ajuan tanpa data lengkap", () => {
-    expect(() => legalisir.ajukanLegalisir({
-      nama: "Riza",
-      npm: "",
-      dokumen: "transkrip.pdf",
-      jumlahCopy: 2
-    })).toThrow("Data tidak lengkap");
+  test("TC-AL-20: Cek status legalisir", () => {
+    const result = lg.cekStatus("LG123");
+    expect(result.statusLegalisir).toBe("Diproses");
   });
 
-  test("menolak dokumen non-PDF", () => {
-    expect(() => legalisir.ajukanLegalisir({
-      nama: "Riza",
-      npm: "V3924001",
-      dokumen: "transkrip.jpg",
-      jumlahCopy: 1
-    })).toThrow("Dokumen harus PDF");
+  test("TC-AL-21: Update status legalisir", () => {
+    const result = lg.updateStatus("Selesai");
+    expect(result.statusLegalisir).toBe("Selesai");
   });
 
-  test("menolak jumlah copy nol", () => {
-    expect(() => legalisir.ajukanLegalisir({
-      nama: "Riza",
-      npm: "V3924001",
-      dokumen: "transkrip.pdf",
-      jumlahCopy: 0
-    })).toThrow("Jumlah copy harus lebih dari 0");
-  });
-
-  test("menerima ajuan valid", () => {
-    const result = legalisir.ajukanLegalisir({
-      nama: "Riza",
-      npm: "V3924001",
-      dokumen: "transkrip.pdf",
-      jumlahCopy: 3
-    });
-    expect(result.status).toBe("Menunggu");
-  });
-
-  test("mengubah status menjadi Diproses", () => {
-    const ajuan = legalisir.ajukanLegalisir({
-      nama: "Riza",
-      npm: "V3924001",
-      dokumen: "transkrip.pdf",
-      jumlahCopy: 2
-    });
-    const updated = legalisir.ubahStatus(ajuan.id, "Diproses");
-    expect(updated.status).toBe("Diproses");
+  test("Validasi data kosong", () => {
+    const result = lg.buatAntrian({});
+    expect(result.status).toBe("Gagal");
   });
 });

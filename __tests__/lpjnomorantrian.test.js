@@ -1,18 +1,9 @@
-const LPJNomorAntrian = require('../src/lpjnomorantrian');
-const queue = new LPJNomorAntrian();
+const LPJNomorAntrian = require("../src/lpjnomorantrian");
+const lna = new LPJNomorAntrian();
 
-describe('LPJ Nomor Antrian', () => {
-    test('Harus menghasilkan nomor antrian sesuai jumlah daftar', () => {
-        const daftar = [{}, {}, {}]; // 3 LPJ sebelumnya
-        const result = queue.generateQueue(daftar);
-        expect(result.status).toBe('Sukses');
-        expect(result.message).toBe('Nomor antrian Anda: 4');
-    });
-
-    test('Harus menghasilkan nomor 1 jika daftar kosong', () => {
-        const result = queue.generateQueue([]);
-        expect(result.status).toBe('Sukses');
-        expect(result.message).toBe('Nomor antrian Anda: 1');
-    });
+describe("TC-AL-19: Sistem menghasilkan nomor antrian legalisir", () => {
+  test("Nomor antrian muncul otomatis", () => {
+    const result = lna.generateNomor();
+    expect(result).toMatch(/^ANTRIAN-\d{4}$/);
+  });
 });
-    

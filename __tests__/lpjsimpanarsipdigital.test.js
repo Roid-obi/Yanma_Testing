@@ -1,17 +1,10 @@
-const LPJSimpanArsipDigital = require('../src/lpjsimpanarsipdigital');
-const archive = new LPJSimpanArsipDigital();
+const LPJSimpanArsipDigital = require("../src/lpjsimpanarsipdigital");
+const lsa = new LPJSimpanArsipDigital();
 
-describe('LPJ Simpan Arsip Digital', () => {
-    test('Harus gagal jika nomorLPJ atau file kosong', () => {
-        const result = archive.saveDigitalArchive({ nomorLPJ: '', file: null });
-        expect(result.status).toBe('Gagal');
-        expect(result.message).toBe('Nomor LPJ dan file wajib diisi.');
-    });
-
-    test('Harus sukses jika data lengkap', () => {
-        const data = { nomorLPJ: 'LPJ001', file: { name: 'dokumen.pdf' } };
-        const result = archive.saveDigitalArchive(data);
-        expect(result.status).toBe('Sukses');
-        expect(result.message).toBe('Arsip digital untuk LPJ LPJ001 berhasil disimpan.');
-    });
+describe("TC-AL-22: Sistem menyimpan arsip digital hasil scan", () => {
+  test("File tersimpan di arsip digital", () => {
+    const result = lsa.saveFile({ name: "hasil_scan.pdf" });
+    expect(result.saved).toBe(true);
+    expect(result.path).toContain("arsip");
+  });
 });

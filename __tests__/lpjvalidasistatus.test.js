@@ -1,19 +1,9 @@
-const LPJValidasiStatus = require('../src/lpjvalidasistatus');
-const validator = new LPJValidasiStatus();
+const LPJUpdateStatus = require('../src/lpjupdatestatus');
+const lus = new LPJUpdateStatus();
 
-describe('LPJ Validasi Status', () => {
-    test('Harus gagal jika status tidak valid', () => {
-        const result = validator.validateStatus('Invalid');
-        expect(result.status).toBe('Gagal');
-        expect(result.message).toBe('Status tidak valid.');
-    });
-
-    test('Harus sukses jika status valid', () => {
-        const validStatuses = ['Menunggu', 'Disetujui', 'Ditolak', 'Revisi'];
-        validStatuses.forEach(status => {
-            const result = validator.validateStatus(status);
-            expect(result.status).toBe('Sukses');
-            expect(result.message).toBe(`Status ${status} diterima sebagai status valid.`);
-        });
+describe('TC-AL-18: Status pengajuan berubah menjadi “Selesai”', () => {
+    test('Status berubah otomatis setelah upload LPJ', () => {
+        const result = lus.updateStatus({ uploaded: true });
+        expect(result.status).toBe('Selesai');
     });
 });
