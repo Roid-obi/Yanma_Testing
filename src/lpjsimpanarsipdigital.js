@@ -1,16 +1,9 @@
 class LPJSimpanArsipDigital {
-    /**
-     * Menyimpan arsip LPJ ke sistem digital.
-     * @param {Object} data - Data LPJ yang akan disimpan.
-     * @returns {Object} Hasil penyimpanan.
-     */
-    saveDigitalArchive(data) {
-        if (!data.nomorLPJ || !data.file) {
-            return { status: 'Gagal', message: 'Nomor LPJ dan file wajib diisi.' };
-        }
-
-        return { status: 'Sukses', message: `Arsip digital untuk LPJ ${data.nomorLPJ} berhasil disimpan.` };
+    saveFile(file) {
+      if (!file || !file.name) return { saved: false };
+      return { saved: true, path: `/arsip/${file.name}` };
     }
-}
-
-module.exports = LPJSimpanArsipDigital;
+  }
+  
+  module.exports = LPJSimpanArsipDigital;
+  

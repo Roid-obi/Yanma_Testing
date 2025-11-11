@@ -1,16 +1,12 @@
 class LPJUpdateStatus {
-    /**
-     * Memperbarui status LPJ setelah diverifikasi.
-     * @param {Object} data - Data LPJ dan status baru.
-     * @returns {Object} Hasil pembaruan.
-     */
-    updateStatus(data) {
-        if (!data.nomorLPJ || !data.statusBaru) {
-            return { status: 'Gagal', message: 'Nomor LPJ dan status baru wajib diisi.' };
-        }
+  updateStatus(data) {
+    if (data.uploaded) return { status: "Selesai" };
+    return { status: "Menunggu" };
+  }
 
-        return { status: 'Sukses', message: `Status LPJ ${data.nomorLPJ} diperbarui menjadi ${data.statusBaru}.` };
-    }
+  setAdminStatus(statusBaru) {
+    return { status: statusBaru };
+  }
 }
 
 module.exports = LPJUpdateStatus;

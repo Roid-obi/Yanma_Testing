@@ -1,20 +1,26 @@
 class Legalisir {
   buatAntrian(data) {
     if (!data.nama || !data.nim) {
-      return { status: "Gagal", message: "Data mahasiswa wajib diisi." };
+      return { status: "Gagal", message: "Data tidak lengkap" };
     }
-    return { status: "Sukses", nomorAntrian: Math.floor(Math.random() * 1000) };
+    const nomor = Math.floor(Math.random() * 1000);
+    return {
+      status: "Sukses",
+      nomorAntrian: `LGL-${nomor}`,
+      nama: data.nama,
+    };
   }
 
   cekStatus(kode) {
-    if (!kode) {
-      return { status: "Gagal", message: "Kode wajib diisi." };
-    }
-    return { status: "Sukses", statusLegalisir: "Diproses" };
+    if (!kode) return { status: "Gagal" };
+    return {
+      status: "Sukses",
+      statusLegalisir: "Diproses",
+    };
   }
 
   updateStatus(statusBaru) {
-    return { status: "Sukses", statusLegalisir: statusBaru };
+    return { statusLegalisir: statusBaru };
   }
 }
 

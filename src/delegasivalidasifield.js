@@ -1,23 +1,19 @@
 class DelegasiValidasiField {
-  /**
-   * Memvalidasi kelengkapan data form delegasi.
-   * @param {Object} data - Data form delegasi.
-   * @returns {Object} Hasil validasi.
-   */
-  validateFields(data) {
-    const requiredFields = ["nama", "nim", "prodi", "alasan"];
-    const missing = requiredFields.filter(
-      (f) => !data[f] || data[f].trim() === ""
-    );
-
-    if (missing.length > 0) {
-      return {
-        status: "Gagal",
-        message: `Field wajib diisi: ${missing.join(", ")}`,
-      };
+  validate(data) {
+    if (!data.suratPengantar || !data.proposal || !data.pamflet) {
+      return { status: "Gagal", message: "Field wajib diisi" };
     }
+    return { status: "Sukses" };
+  }
 
-    return { status: "Sukses", message: "Seluruh field valid." };
+  validateFields(data) {
+    const required = ["nama", "nim", "prodi", "alasan"];
+    for (const field of required) {
+      if (!data[field]) {
+        return { status: "Gagal", message: "Field wajib diisi" };
+      }
+    }
+    return { status: "Sukses" };
   }
 }
 
