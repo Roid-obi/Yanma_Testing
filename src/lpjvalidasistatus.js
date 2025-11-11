@@ -1,19 +1,12 @@
 class LPJValidasiStatus {
-  /**
-   * Memastikan status LPJ valid sebelum diperbarui.
-   * @param {string} status - Status baru yang akan diberikan.
-   * @returns {Object} Hasil validasi status.
-   */
   validateStatus(status) {
-    const validStatuses = ["Menunggu", "Disetujui", "Ditolak", "Revisi"];
-    if (!validStatuses.includes(status)) {
-      return { status: "Gagal", message: "Status tidak valid." };
+    if (status === "Disetujui") {
+      return {
+        status: "Sukses",
+        message: "Status LPJ berubah menjadi Selesai",
+      };
     }
-
-    return {
-      status: "Sukses",
-      message: `Status ${status} diterima sebagai status valid.`,
-    };
+    return { status: "Gagal", message: "Status belum disetujui" };
   }
 }
 

@@ -1,12 +1,15 @@
 class LPJNomorAntrian {
-  /**
-   * Menghasilkan nomor antrian untuk proses LPJ.
-   * @param {Array} daftar - Daftar LPJ yang sudah ada.
-   * @returns {Object} Nomor antrian baru.
-   */
-  generateQueue(daftar) {
-    const nomor = daftar.length + 1;
-    return { status: "Sukses", message: `Nomor antrian Anda: ${nomor}` };
+  generateQueue(queueList) {
+    const nextNumber = queueList.length + 1;
+    return {
+      status: "Sukses",
+      message: `Nomor antrian ${nextNumber} berhasil dibuat`,
+    };
+  }
+
+  generateNomor() {
+    const num = Math.floor(1000 + Math.random() * 9000);
+    return `ANTRIAN-${num}`;
   }
 }
 

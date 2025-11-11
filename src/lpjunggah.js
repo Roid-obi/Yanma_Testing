@@ -1,21 +1,23 @@
 class LPJUnggah {
-    /**
-     * Memvalidasi dan memproses unggahan dokumen LPJ.
-     * @param {Object} file - File LPJ yang akan diunggah.
-     * @returns {Object} Hasil unggahan.
-     */
-    uploadLPJ(file) {
-        if (!file || !file.name) {
-            return { status: 'Gagal', message: 'File LPJ wajib dipilih.' };
-        }
+  getFormUpload() {
+    return {
+      fields: ["fileLPJ"],
+      info: "Unggah file LPJ atau SPJ dalam format PDF/ZIP",
+    };
+  }
 
-        const ext = file.name.split('.').pop().toLowerCase();
-        if (ext !== 'pdf') {
-            return { status: 'Gagal', message: 'File LPJ harus dalam format PDF.' };
-        }
-
-        return { status: 'Sukses', message: 'File LPJ berhasil diunggah.' };
+  uploadLPJ(file) {
+    if (!file || !file.name) {
+      return { status: "Gagal", message: "File tidak ditemukan" };
     }
+
+    const ext = file.name.split(".").pop().toLowerCase();
+    if (!["pdf", "zip"].includes(ext)) {
+      return { status: "Gagal", message: "Format tidak didukung" };
+    }
+
+    return { status: "Sukses", message: "File berhasil diunggah" };
+  }
 }
 
 module.exports = LPJUnggah;
