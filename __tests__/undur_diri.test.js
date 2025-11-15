@@ -5,12 +5,12 @@ describe('Unit Test: Undur Diri', () => {
     test('TC-RR-1: Tampilan awal modul', () => {
         const tampilan = ud.getTampilanAwal();
         expect(tampilan.judul).toBe('Pengajuan Undur Diri');
-        expect(tampilan.persyaratan).toHaveLength(3); // Diperbaiki dari 6 jadi 3
+        expect(tampilan.persyaratan).toHaveLength(3); 
     });
 
     test('TC-RR-2: Form pengajuan', () => {
         const form = ud.getFormPengajuan();
-        expect(form.fields).toHaveLength(3); // Sesuai dengan modul yang diperbaiki
+        expect(form.fields).toHaveLength(3); 
     });
 
     test('TC-RR-3: Validasi file kosong', () => {

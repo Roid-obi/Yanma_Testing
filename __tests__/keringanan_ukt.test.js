@@ -21,7 +21,7 @@ describe('Unit Test: Keringanan UKT', () => {
 
     test('TC-RR-10: Validasi persyaratan', () => {
         const syarat = kukt.getPersyaratan();
-        expect(syarat.persyaratan).toContain('Mahasiswa aktif');
+        expect(syarat.persyaratan).toContain('Mahasiswa aktif', 'Berkas lengkap', 'Memenuhi kriteria ekonomi');
         expect(syarat.dokumenWajib).toHaveLength(6);
     });
 
